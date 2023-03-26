@@ -1,0 +1,31 @@
+<div class="rsvp-container">
+    <h2>RSVP</h2>
+    <form (ngSubmit)="submitRsvp()" #rsvpForm="ngForm">
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput type="text" name="name" [(ngModel)]="rsvp.name" required>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" name="email" [(ngModel)]="rsvp.email" required>
+      </mat-form-field>
+      <div class="form-group">
+        <mat-label>Attendance</mat-label>
+        <div class="attendance-options">
+          <label class="attendance-option">
+            <input type="radio" name="attendance" value="attending" [(ngModel)]="rsvp.attendance" required>
+            <span class="checkmark"></span>
+            Attending
+          </label>
+          <label class="attendance-option">
+            <input type="radio" name="attendance" value="not-attending" [(ngModel)]="rsvp.attendance" required>
+            <span class="checkmark"></span>
+            Not Attending
+          </label>
+        </div>
+      </div>
+      
+      <button mat-raised-button color="primary" type="submit" [disabled]="!rsvpForm.valid">Submit</button>
+    </form>
+  </div>
+  
